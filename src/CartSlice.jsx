@@ -5,6 +5,7 @@ export const CreatSlice = createSlice({
   initialState: {
     items: [], // Initialize items as an empty array
     totalItems: 0
+    
   },
   reducers: {
     addItem: (state, action) => {
@@ -22,7 +23,7 @@ export const CreatSlice = createSlice({
       const itemToRemove = state.items.find(item => item.name === name);
 
       if (itemToRemove) {
-        state.totalItems -= itemToRemove.quantity;  // Actualiza el número total de ítems
+        state.totalItems -= itemToRemove.quantity;  
         state.items = state.items.filter(item => item.name !== name);
       }
     },

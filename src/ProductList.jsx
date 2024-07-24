@@ -21,7 +21,7 @@ function ProductList() {
         dispatch(addItem(product));
         setAddedToCart((prevState) => ({
             ...prevState,
-            [product.name]: true,                                       //Set the product name as key and value as true to indicate it's added to cart
+            [product.name]: true,                                     
         }));
     };
     const plantsArray = [
@@ -278,7 +278,7 @@ function ProductList() {
                 <div className="product-grid">
                     {plantsArray.map((category, index) => (
                         <div key={index}>
-                            <h1><div>{category.category}</div></h1>
+                            <h1 className= "plantname_heading"><div className= "plant_heading">{category.category}</div></h1>
                             <div className='product-list'>
                                 {category.plants.map((plant, plantIndex) => (
                                     <div className='product-card' key={plantIndex}>
