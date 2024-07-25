@@ -282,9 +282,11 @@ function ProductList() {
                 </div>
             </div>
             {showCart ? (
+
    <Cart onContinueShopping={handleProducts} onRemoveItem={handleRemoveFromCart} />
 
-) : (
+ ) : (
+
                 <div className="product-grid">
                     {plantsArray.map((category, index) => (
                         <div key={index}>
