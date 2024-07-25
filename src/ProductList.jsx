@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './ProductList.css'
-import { addItem, selectTotalItems } from './CartSlice';
+import { addItem, selectTotalItems, removeItem } from './CartSlice';
 import { useDispatch, useSelector } from 'react-redux';
 import Cart from './CartItem';
 
@@ -32,7 +32,7 @@ function ProductList() {
             [productName]: false, // Re-enable the button for the removed item
         }));
     };
-
+    
     const plantsArray = [
         {
             category: "Air Purifying Plants",
@@ -282,9 +282,9 @@ function ProductList() {
                 </div>
             </div>
             {showCart ? (
-                <Cart onContinueShopping={handleProducts} onRemoveItem={handleRemoveFromCart} />
+   <Cart onContinueShopping={handleProducts} onRemoveItem={handleRemoveFromCart} />
 
-            ) : (
+) : (
                 <div className="product-grid">
                     {plantsArray.map((category, index) => (
                         <div key={index}>

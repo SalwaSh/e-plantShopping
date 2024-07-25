@@ -3,14 +3,14 @@ import { useSelector, useDispatch} from 'react-redux';
 import { removeItem, updateQuantity } from './CartSlice';
 import './CartItem.css';
 
-const Cart = ({ onContinueShopping, onRemoveItem }) => {
-  const dispatch = useDispatch();
+const Cart = ({onContinueShopping, onRemoveItem}) => {
   const cart = useSelector(state => state.cart.items);
+  const dispatch = useDispatch();
 
   const handleRemove = (item) => {
-      dispatch(removeItem({ name: item.name }));
-      onRemoveItem(item.name); // Notify ProductList to update the button state
-  };
+    dispatch(removeItem({ name: item.name }));
+    onRemoveItem(item.name); // Notify ProductList to update the button state
+};
 
   // Calculate total amount foall products in the cart
   const calculateTotalAmount = () => {
