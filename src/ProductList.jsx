@@ -21,9 +21,18 @@ function ProductList() {
         dispatch(addItem(product));
         setAddedToCart((prevState) => ({
             ...prevState,
-            [product.name]: true,                                     
+            [product.name]: true,
         }));
     };
+
+    const handleRemoveFromCart = (productName) => {
+        dispatch(removeItem({ name: productName }));
+        setAddedToCart(prevState => ({
+            ...prevState,
+            [productName]: false, // Re-enable the button for the removed item
+        }));
+    };
+
     const plantsArray = [
         {
             category: "Air Purifying Plants",
@@ -273,12 +282,13 @@ function ProductList() {
                 </div>
             </div>
             {showCart ? (
-                <Cart onContinueShopping={handleProducts} />
+                <Cart onContinueShopping={handleProducts} onRemoveItem={handleRemoveFromCart} />
+
             ) : (
                 <div className="product-grid">
                     {plantsArray.map((category, index) => (
                         <div key={index}>
-                            <h1 className= "plantname_heading"><div className= "plant_heading">{category.category}</div></h1>
+                            <h1 className="plantname_heading"><div className="plant_heading">{category.category}</div></h1>
                             <div className='product-list'>
                                 {category.plants.map((plant, plantIndex) => (
                                     <div className='product-card' key={plantIndex}>
